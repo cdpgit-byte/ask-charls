@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Charls Pasion, Customer Success Manager applicant. A sourced record, the system I built, and how I would run a book of firms.">
+<meta name="robots" content="noindex">
+<title>Charls Pasion for Supio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a sourced record. Dark teal opening band with a first-person ask window, then the record most recent first, one chapter per employer, a live map of the system I built, an illustrative book of firms, the posting matched line by line, and a closing ask box. Every figure names its employer and period in plain words. 1120px max. */
+:root{
+  --bg:#ffffff; --surface:#f2f6f3; --ink:#1e3a44; --muted:#566b71; --line:#d8e1de;
+  --lime:#d6ee52; --lime-ink:#1b2c16; --accent-text:#3d6a1c; --pk:#2c7655; --stop:#b83f2a;
+  --band:#17262b; --band-card:#2a383d; --band-fg:#f2f6f3; --band-muted:#a8b8b9; --band-line:#3a4a4f;
+  --win:#ffffff; --win-ink:#1c2b30; --win-muted:#5d6f74; --win-line:#e1e7e5; --win-bar:#f6f6f2;
+  --good:#2c7655;
+  --p-risk:#f39a86; --p-watch:#e9bd63; --p-good:#86d6ad; --p-info:#96c8ec; --p-grow:#d6ee52;
+  --display:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --body:"Figtree","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111c20; --surface:#19272c; --ink:#eef3f0; --muted:#9fb0b2; --line:#2c3d42;
+    --accent-text:#d6ee52; --pk:#d6ee52; --stop:#f08a74;
+    --band:#0b1417; --band-card:#1b292e; --band-line:#2c3d42;
+    --win:#1b292e; --win-ink:#eef3f0; --win-muted:#a3b3b5; --win-line:#304247; --win-bar:#223238;
+    --good:#7fd0a6;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111c20; --surface:#19272c; --ink:#eef3f0; --muted:#9fb0b2; --line:#2c3d42;
+  --accent-text:#d6ee52; --pk:#d6ee52; --stop:#f08a74;
+  --band:#0b1417; --band-card:#1b292e; --band-line:#2c3d42;
+  --win:#1b292e; --win-ink:#eef3f0; --win-muted:#a3b3b5; --win-line:#304247; --win-bar:#223238;
+  --good:#7fd0a6;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;margin:0}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-0.02em;line-height:1.1}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:20px}
+.band{background:var(--band);color:var(--band-fg)}
+.eyebrow{font-weight:600;font-size:15px;letter-spacing:.01em}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:600;font-size:16px;padding:12px 20px;border-radius:10px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;line-height:1.2;transition:transform .15s ease,filter .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-lime{background:var(--lime);color:var(--lime-ink)}
+.btn-ghost{background:transparent;border-color:currentColor;color:inherit}
+.btn-sm{padding:9px 14px;font-size:14px}
+:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
+.arrow{font-family:var(--mono);font-size:14px}
+.src-tag{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--accent-text);margin-top:4px}
+.cite{font-family:var(--mono);font-size:11.5px;color:var(--accent-text);white-space:nowrap}
+
+/* top bar */
+.top{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;padding-block:22px}
+.name{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-0.02em}
+.tag{display:inline-block;margin-left:12px;font-size:13px;font-weight:600;border:1px solid var(--band-line);color:var(--band-muted);padding:4px 12px;border-radius:999px;vertical-align:middle}
+.top-actions{display:flex;flex-wrap:wrap;gap:10px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-block:36px 72px}
+.hero>*{min-width:0}
+.hero .eyebrow{color:var(--lime)}
+.hero h1{font-size:clamp(38px,5.6vw,64px);font-weight:500;margin-block:14px 22px}
+.lede{font-size:19px;max-width:34em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.facts{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:30px;font-size:15px;color:var(--band-muted)}
+.facts span+span::before{content:"·";margin-inline:12px}
+.win{background:var(--win);color:var(--win-ink);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.win-bar{background:var(--win-bar);padding:12px 16px;font-size:13px;color:var(--win-muted);border-bottom:1px solid var(--win-line)}
+.win-body{padding:22px}
+.q{font-family:var(--display);font-weight:600;font-size:20px;margin-bottom:12px}
+.a{font-size:16px;line-height:1.6;min-height:10.5em}
+.a.swap{animation:fade .35s ease}
+@keyframes fade{from{opacity:.25;transform:translateY(4px)}to{opacity:1;transform:none}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:16px;border-top:1px solid var(--win-line)}
+.chip{font-family:var(--body);font-size:14px;font-weight:500;padding:8px 12px;border-radius:999px;border:1px solid var(--win-muted);background:transparent;color:var(--win-ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--lime);color:var(--lime-ink);border-color:var(--lime)}
+
+/* sections */
+.sec{padding-block:72px}
+.sec.tight{padding-top:0}
+.sec.tint{background:var(--surface)}
+.sec-head{display:grid;gap:12px;margin-bottom:36px;max-width:44em}
+.sec-head .eyebrow{color:var(--accent-text)}
+.sec-head h2{font-size:clamp(30px,4vw,44px);font-weight:600}
+.sec-head p{color:var(--muted)}
+.band .sec-head .eyebrow{color:var(--lime)}
+.band .sec-head p{color:var(--band-muted)}
+
+/* record */
+.chron{border-top:2px solid var(--ink)}
+.cr{display:grid;grid-template-columns:150px 190px 1fr;gap:20px;padding-block:18px;border-bottom:1px solid var(--line)}
+.cr>*{min-width:0}
+.cr .when{font-family:var(--mono);font-size:13.5px;color:var(--muted);padding-top:3px}
+.cr .who{font-family:var(--display);font-weight:600}
+.cr .who small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted)}
+.cr .find{font-size:16.5px}
+
+/* chapters */
+.chapter{display:grid;grid-template-columns:300px 1fr;gap:40px;padding-block:44px;border-top:1px solid var(--line)}
+.chapter>*{min-width:0}
+.chapter.first{border-top:0;padding-top:0}
+.ch-label{display:grid;gap:10px;align-content:start}
+.ch-co{font-family:var(--mono);font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.ch-label h3{font-size:28px;font-weight:600}
+.ch-label p{color:var(--muted);font-size:15.5px}
+.ch-body{display:grid;gap:24px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.stat{display:grid;gap:6px;align-content:start;padding-top:14px;border-top:2px solid var(--ink)}
+.stat b{font-family:var(--display);font-weight:600;font-size:38px;letter-spacing:-0.03em;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:15px;color:var(--muted)}
+.ch-body>p{max-width:40em}
+.base{font-size:14px;color:var(--muted);border-left:2px solid var(--line);padding-left:12px;max-width:44em}
+.how{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.how li{display:grid;grid-template-columns:170px 1fr;gap:18px;padding-block:13px;border-bottom:1px solid var(--line);font-size:16px}
+.how li>*{min-width:0}
+.how b{font-family:var(--display);font-weight:600}
+.how span{color:var(--muted)}
+.pilot{background:var(--surface);border-radius:14px;padding:24px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.pilot>*{min-width:0}
+.dots{display:grid;grid-template-columns:repeat(16,8px);gap:5px}
+.dots i{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--muted);display:block}
+.dots i.on{background:var(--good);border-color:var(--good)}
+.pilot h4{font-size:19px;margin-bottom:8px;font-weight:600}
+.pilot p{font-size:15.5px;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px;font-size:13.5px;color:var(--muted)}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--muted);margin-right:7px}
+.legend i.on{background:var(--good);border-color:var(--good)}
+
+/* system map */
+.sys-heads{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,8vw,96px);margin-bottom:14px;font-size:13px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.sys-heads span{border-bottom:1px solid var(--line);padding-bottom:8px;min-width:0}
+.sys{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,8vw,96px);align-items:center}
+.sys-col{display:grid;gap:clamp(22px,4vw,40px);position:relative;z-index:1;min-width:0}
+.sys-svg{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
+.edge{fill:none;stroke:var(--muted);stroke-width:1.2;opacity:.45}
+.edge.back{stroke-dasharray:3 5}
+.pk{fill:var(--pk)}
+.pk.b{fill:var(--stop)}
+.node{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 30px 14px 16px;text-align:left;font:inherit;color:inherit;cursor:pointer;display:grid;gap:3px;min-width:0;transition:border-color .3s,transform .25s}
+.node::after{content:"\203A";position:absolute;right:12px;top:8px;font-size:20px;line-height:1;color:var(--accent-text)}
+.node small{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.node b{font-family:var(--display);font-weight:600;font-size:clamp(15px,1.9vw,19px);line-height:1.15}
+.node span{font-size:12.5px;color:var(--muted)}
+.node:hover{transform:translateY(-2px)}
+.node.hub{border-color:var(--ink)}
+.node[aria-pressed="true"]{box-shadow:inset 0 -3px 0 var(--pk);border-color:var(--ink)}
+.node.hit{border-color:var(--pk)}
+.guards{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(26px,4vw,40px);align-items:center}
+.guards .lab{font-size:13px;color:var(--muted);margin-right:4px}
+.guard{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:6px 12px 6px 10px;cursor:pointer;display:inline-flex;gap:8px;align-items:center;transition:background .25s,border-color .25s,color .25s}
+.guard i{width:8px;height:8px;border-radius:2px;background:var(--muted);transition:background .25s}
+.guard[aria-pressed="true"]{border-color:var(--ink)}
+.guard.flash{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.guard.flash i{background:var(--stop)}
+.sdetail{margin-top:clamp(26px,4vw,38px);border-top:2px solid var(--ink);padding-top:22px;display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,4vw,44px)}
+.sdetail>div{min-width:0;animation:fade .4s ease both}
+.sdetail .k{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-text);margin-bottom:8px}
+.sdetail h3{font-size:22px;font-weight:600}
+.sdetail p{color:var(--muted);font-size:15.5px}
+.sdetail .here p{color:var(--ink)}
+.out{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:44px}
+.out .stat b{font-size:32px}
+.fine{font-size:13.5px;color:var(--muted);margin-top:18px;max-width:52em}
+
+/* book */
+.book{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:start}
+.book>*{min-width:0}
+.note{font-size:14px;color:var(--band-muted);margin-bottom:18px;border-left:2px solid var(--band-line);padding-left:12px;max-width:52em}
+.rows{display:grid;gap:8px}
+.row{display:grid;grid-template-columns:1.5fr 1fr .8fr .8fr auto;gap:14px;align-items:center;text-align:left;width:100%;background:var(--band-card);color:var(--band-fg);border:1.5px solid transparent;border-radius:12px;padding:14px 16px;font-family:var(--body);font-size:15px;cursor:pointer;transition:border-color .2s ease}
+.row>*{min-width:0}
+.row[aria-pressed="true"]{border-color:var(--lime)}
+.row .firm{font-family:var(--display);font-weight:600;font-size:16px}
+.row small{display:block;font-size:11.5px;color:var(--band-muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.num{font-variant-numeric:tabular-nums}
+.bar{display:block;height:5px;border-radius:3px;background:var(--band-line);margin-top:5px;overflow:hidden}
+.bar u{display:block;height:100%;background:var(--lime);text-decoration:none}
+.pill{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap;border:1.5px solid currentColor}
+.p-risk{color:var(--p-risk)}.p-watch{color:var(--p-watch)}.p-good{color:var(--p-good)}.p-info{color:var(--p-info)}.p-grow{color:var(--p-grow)}
+.detail{background:var(--band-card);border-radius:14px;padding:24px;display:grid;gap:16px}
+.detail>*{animation:fade .4s ease both}
+.detail h3{font-size:22px;font-weight:600}
+.detail dl{margin:0}
+.detail dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--lime);margin-bottom:4px}
+.detail dd{margin:0 0 14px;font-size:15.5px}
+
+/* posting match + plan */
+.two{display:grid;grid-template-columns:1.15fr .85fr;gap:56px}
+.two>*{min-width:0}
+h3.sub{font-size:26px;font-weight:600;margin-bottom:18px}
+.match{border-top:2px solid var(--ink);margin:0}
+.match div{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:18px;padding-block:14px;border-bottom:1px solid var(--line)}
+.match dt{font-family:var(--display);font-weight:600;font-size:16px}
+.match dd{margin:0;color:var(--muted);font-size:15.5px}
+.plan{list-style:none;margin:0;padding:0;display:grid;border-top:2px solid var(--ink)}
+.plan li{display:grid;grid-template-columns:104px 1fr;gap:16px;padding-block:14px;border-bottom:1px solid var(--line)}
+.plan li>*{min-width:0}
+.plan .wk{font-family:var(--mono);font-size:13px;color:var(--accent-text);padding-top:3px}
+.plan b{font-family:var(--display);font-weight:600;display:block}
+.plan span{color:var(--muted);font-size:15.5px}
+
+/* close */
+.close{padding-block:84px 56px}
+.askbox{border:1.5px solid var(--band-line);border-radius:18px;background:var(--band-card);padding:clamp(22px,4vw,40px);max-width:920px}
+.askbox .lab{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--band-muted);margin-bottom:14px}
+.askbox h2{font-size:clamp(34px,6.4vw,72px);font-weight:500;min-height:2.2em}
+.askbox h2 .l2{color:var(--lime)}
+.caret{display:inline-block;width:.06em;height:.9em;background:var(--lime);margin-left:.06em;vertical-align:-.08em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.srcs{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.srcs span{font-family:var(--mono);font-size:12.5px;padding:6px 10px;border-radius:7px;border:1px solid var(--band-line);color:var(--band-fg);transition:opacity .45s ease,transform .45s ease}
+.srcs.hide span{opacity:0;transform:translateY(8px)}
+.close p.why{color:var(--band-muted);max-width:38em;margin-block:28px;font-size:18px}
+.close .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.email{font-family:var(--mono);font-size:15px;user-select:all;padding:11px 14px;border:1px dashed var(--band-line);border-radius:10px;overflow-wrap:anywhere}
+.foot{font-size:13px;color:var(--band-muted);padding-block:0 28px}
+
+@media (max-width:860px){
+  .hero,.book,.two,.chapter{grid-template-columns:1fr}
+  .hero{gap:32px;padding-block:20px 52px}
+  .chapter{gap:20px}
+  .cr{grid-template-columns:1fr;gap:4px}
+  .stats{grid-template-columns:1fr}
+  .out{grid-template-columns:1fr 1fr}
+  .pilot{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr 1fr}
+  .row .firm{grid-column:1/-1}
+  .sdetail{grid-template-columns:1fr}
+  .how li,.match div{grid-template-columns:1fr;gap:4px}
+  .sec{padding-block:52px}
+  .sec.tight{padding-top:0}
+  .tag{margin-left:0;margin-top:6px}
+}
+@media (max-width:600px){
+  .node span,.node small{display:none}
+  .node{padding:10px 18px 10px 8px}
+  .node::after{right:5px;top:6px;font-size:16px}
+  .node b{font-size:13.5px}
+  .sys-heads{font-size:10.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  .a.swap,.sdetail>div,.detail>*{animation:none}
+  .btn:hover,.node:hover{transform:none}
+  .caret{display:none}
+  .srcs span{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="band">
+  <div class="wrap">
+    <div class="top">
+      <div><span class="name">Charls Pasion</span> <span class="tag">Customer Success Manager applicant</span></div>
+      <div class="top-actions">
+        <button class="btn btn-ghost btn-sm" id="theme" type="button" aria-label="Switch between light and dark">Dark mode</button>
+        <a class="btn btn-ghost btn-sm" href="https://drive.google.com/file/d/1tFlNnqdYFlOmhIdsHM46PVvcSm645cGW/view?usp=sharing" target="_blank" rel="noopener">Resume <span class="arrow">↗</span></a>
+        <a class="btn btn-ghost btn-sm" href="https://www.linkedin.com/in/charls-daren-pasion-97a16420a" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a>
+        <a class="btn btn-lime btn-sm" href="#contact">Get in touch <span class="arrow">↓</span></a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div>
+        <span class="eyebrow">For the Customer Success team at Supio</span>
+        <h1>One CSM. Every account. The whole book.</h1>
+        <p class="lede">I manage restaurant accounts at Uber. I closed Q3 at 104% of quota, and Uber awarded me a book five times the size for Q4. Every number on this page says where it came from and when, the way your platform cites its sources.</p>
+        <div class="cta">
+          <a class="btn btn-lime" href="#record">Read the record <span class="arrow">↓</span></a>
+          <a class="btn btn-ghost" href="#system">See what I built <span class="arrow">↓</span></a>
+          <a class="btn btn-ghost" href="https://drive.google.com/file/d/1tFlNnqdYFlOmhIdsHM46PVvcSm645cGW/view?usp=sharing" target="_blank" rel="noopener">Resume <span class="arrow">↗</span></a>
+        </div>
+        <div class="facts"><span>Account Manager at Uber</span><span>10 years in B2B accounts</span><span>Based in Seattle</span><span>Builds with AI</span></div>
+      </div>
+
+      <div class="win" aria-label="Questions you might ask me">
+        <div class="win-bar">Questions you might ask me</div>
+        <div class="win-body">
+          <div class="q" id="q"></div>
+          <div class="a" id="a" aria-live="polite"></div>
+          <div class="chips" id="chips"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="sec" id="record">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The record</span>
+      <h2>Most recent first.</h2>
+      <p>Three employers, kept apart, so no figure borrows credit from another job.</p>
+    </div>
+    <div class="chron">
+      <div class="cr">
+        <div class="when">May 2026 to now</div>
+        <div class="who">Uber<small>Account Manager, SMB</small></div>
+        <div class="find">101% attainment in a six-week Q2 ramp, then 104% in Q3 against a 37% blended growth quota. On the strength of that quarter, Uber awarded me a much larger book for Q4, from $8 million to $40 million in annual GMV.</div>
+      </div>
+      <div class="cr">
+        <div class="when">Apr to Aug 2026</div>
+        <div class="who">Garmentory<small>Contract, about 10 hours a week</small></div>
+        <div class="find">The boutiques I signed were 13% of the new storefronts and drove 67.5% of the GMV from net-new partners. Every one of them made sales, and 70% now rank in the top 30 of all partners.</div>
+      </div>
+      <div class="cr">
+        <div class="when">2023 to 2025</div>
+        <div class="who">Garmentory<small>Senior Account Manager</small></div>
+        <div class="find">Managed the top 50 accounts, which made up 55% of the marketplace's revenue, and grew them 22 to 30% quarter over quarter. Sourced more than half of all net-new partners in the same period, and led the pilot for the first sponsored listings program.</div>
+      </div>
+      <div class="cr">
+        <div class="when">2016 to 2023</div>
+        <div class="who">Talk Carpet<small>Co-founder, GTM sales lead</small></div>
+        <div class="find">Co-founded the exclusive West Coast representative for Ege Carpets and grew it to $7M in annual revenue. Sold to architecture and design firms on projects for Google, Netflix, Dropbox and Marriott. 70% customer retention, 35% of client presentations converted.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Against the role</span>
+      <h2>What each job taught me to do.</h2>
+    </div>
+
+    <div class="chapter first">
+      <div class="ch-label">
+        <span class="ch-co">Uber · 2026</span>
+        <h3>Retention and expansion</h3>
+        <p>I manage restaurant accounts on the delivery marketplace: ads, promotions and order growth. Most of the growth comes from accounts I already manage.</p>
+      </div>
+      <div class="ch-body">
+        <div class="stats">
+          <div class="stat"><b>104%</b><span>of Q3 quota, against a 37% blended growth target<span class="src-tag">Uber, Q3 2026</span></span></div>
+          <div class="stat"><b>5x</b><span>larger book awarded for Q4, $8 million to $40 million in annual GMV<span class="src-tag">Uber, Q4 2026</span></span></div>
+          <div class="stat"><b>130+</b><span>restaurant brands across 350+ locations from October 1<span class="src-tag">Uber, Q4 2026</span></span></div>
+        </div>
+        <ul class="how">
+          <li><b>Account health</b><span>Salesforce, Gainsight and Clari are open every day. I find the accounts that are slipping and bring a business case to the ones ready to spend more.</span></li>
+          <li><b>Business reviews</b><span>Monthly or quarterly, with the cadence set by what each partner needs.</span></li>
+          <li><b>Across teams</b><span>I work with our ads specialist and operations team to pass partner feedback back and improve our standard procedures.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="chapter">
+      <div class="ch-label">
+        <span class="ch-co">Garmentory · 2023 to 2026</span>
+        <h3>Onboarding, adoption and expansion</h3>
+        <p>Garmentory is an online marketplace for independent fashion boutiques and brands. I brought stores on, got them selling, and grew the largest accounts.</p>
+      </div>
+      <div class="ch-body">
+        <div class="stats">
+          <div class="stat"><b>67.5%</b><span>of the GMV from net-new partners, from 13% of the new storefronts<span class="src-tag">Garmentory, Apr to Aug 2026</span></span></div>
+          <div class="stat"><b>100%</b><span>of the stores I signed made sales. In the brand channel, 43% of new stores never sold.<span class="src-tag">Garmentory, Apr to Aug 2026</span></span></div>
+          <div class="stat"><b>70%</b><span>of them now rank in the top 30 of all partners by revenue<span class="src-tag">Garmentory, 2026 signings</span></span></div>
+        </div>
+        <p class="base">The base: 10 of the 76 storefronts published in that period were mine, about 2.1 times the GMV of the rest of the team combined, on roughly 10 hours a week alongside my job at Uber. Earlier, as a full-time account manager from 2023 to 2025, I grew the top 50 accounts 22 to 30% quarter over quarter.</p>
+        <div class="pilot">
+          <div>
+            <div class="dots" id="dots" aria-hidden="true"></div>
+            <div class="legend"><span><i class="on"></i>Continued on paid spend</span><span><i></i>Trial only</span></div>
+          </div>
+          <div>
+            <h4>Making the case for expansion</h4>
+            <p>For the marketplace's first sponsored listings program, about 80 of roughly 800 partners got a free four-week trial. Around a third kept paying afterward, spending about 5 to 6% of their monthly GMV. I wrote up the results as case studies, sent them to other partners, and ran the same play again over the next three months.</p>
+            <span class="src-tag">Garmentory, 2023 to 2025. Figures are approximate.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chapter">
+      <div class="ch-label">
+        <span class="ch-co">Talk Carpet · 2016 to 2023</span>
+        <h3>Consultative selling to partner-led firms</h3>
+        <p>The company I co-founded. Our buyers were architecture and design firms such as Gensler, Rockwell Group and Rapt Studio.</p>
+      </div>
+      <div class="ch-body">
+        <div class="stats">
+          <div class="stat"><b>$7M</b><span>in annual revenue<span class="src-tag">Talk Carpet, 2016 to 2023</span></span></div>
+          <div class="stat"><b>70%</b><span>customer retention<span class="src-tag">Talk Carpet, 2016 to 2023</span></span></div>
+          <div class="stat"><b>35%</b><span>of client presentations converted<span class="src-tag">Talk Carpet, 2016 to 2023</span></span></div>
+        </div>
+        <p>Architecture firms and law firms have a lot in common. Both are run by partners who bill their time, trust their peers, and need proof before they change how their staff works. I spent seven years earning repeat business from that kind of buyer, from the first meeting through the last payment milestone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="system">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Lead with AI</span>
+      <h2>When the tool I needed didn't exist, I built it.</h2>
+      <p>Your posting asks for a CSM who leads with AI. This is what that looks like for me. With no engineering background, I built this system in six weeks using AI coding agents. It ran on about 10 hours a week and produced the Garmentory results above. Select any part to see what it did and how the same thinking could apply to a book of law firms.</p>
+    </div>
+    <div class="sys-heads" aria-hidden="true"><span>Find</span><span>Qualify and store</span><span>Reach and track</span></div>
+    <div class="sys" id="sys">
+      <svg class="sys-svg" id="sysSvg" aria-hidden="true"></svg>
+      <div class="sys-col">
+        <button class="node" type="button" id="n-disc" data-n="disc" aria-pressed="false"><small>Search</small><b>Discovery search</b><span>Finds new boutiques</span></button>
+        <button class="node" type="button" id="n-stock" data-n="stock" aria-pressed="true"><small>Lookalikes</small><b>Stockist search</b><span>47 brand pages</span></button>
+      </div>
+      <div class="sys-col">
+        <button class="node hub" type="button" id="n-air" data-n="air" aria-pressed="false"><small>Hub</small><b>Airtable base</b><span>Every record, every stage</span></button>
+        <button class="node" type="button" id="n-hunt" data-n="hunt" aria-pressed="false"><small>Contacts</small><b>Contact lookup</b><span>Hunter.io</span></button>
+      </div>
+      <div class="sys-col">
+        <button class="node" type="button" id="n-draft" data-n="draft" aria-pressed="false"><small>Drafts</small><b>Outreach drafter</b><span>Claude and Gmail</span></button>
+        <button class="node" type="button" id="n-det" data-n="det" aria-pressed="false"><small>Tracking</small><b>Reply tracking</b><span>Back into Airtable</span></button>
+      </div>
+    </div>
+    <div class="guards">
+      <span class="lab">Rules it follows</span>
+      <button class="guard" type="button" id="g-cap" data-n="guard" data-g="cap" aria-pressed="false"><i></i>Spend caps</button>
+      <button class="guard" type="button" id="g-dry" data-n="guard" data-g="dry" aria-pressed="false"><i></i>Test run first</button>
+      <button class="guard" type="button" id="g-dnc" data-n="guard" data-g="dnc" aria-pressed="false"><i></i>Do-not-contact list</button>
+      <button class="guard" type="button" id="g-live" data-n="guard" data-g="live" aria-pressed="false"><i></i>Live partner check</button>
+    </div>
+    <div class="sdetail" id="sdetail" aria-live="polite"></div>
+
+    <div class="out">
+      <div class="stat"><b>6 weeks</b><span>to build, before the first boutique signed</span></div>
+      <div class="stat"><b>$217</b><span>a month to run, all in</span></div>
+      <div class="stat"><b>100%</b><span>of signed stores made sales</span></div>
+      <div class="stat"><b>67.5%</b><span>of GMV from net-new partners</span></div>
+    </div>
+    <p class="fine">The right-hand column holds ideas, not promises. I do not know your tools or your data yet, and I would learn both before building anything.</p>
+  </div>
+</section>
+
+<section class="sec band" id="book">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How I would work</span>
+      <h2>Monday morning with a book of firms.</h2>
+      <p>Pick a firm to see how I read it and what I do next.</p>
+    </div>
+    <p class="note">Illustrative only. These firms and numbers are invented, and I do not know your health model yet. This shows how I triage a book today.</p>
+    <div class="book">
+      <div class="rows" id="rows"></div>
+      <div class="detail" id="detail" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap two">
+    <div>
+      <div class="sec-head" style="margin-bottom:18px"><span class="eyebrow">Your posting, line by line</span></div>
+      <h3 class="sub">What you ask for, and what I bring.</h3>
+      <dl class="match">
+        <div><dt>3 to 5+ years in customer success, account management or client-facing roles</dt><dd>10 years in client-facing account roles across Uber, Garmentory and Talk Carpet.</dd></div>
+        <div><dt>A record of meeting retention and growth targets</dt><dd>104% of Q3 quota at Uber. 22 to 30% quarterly growth on Garmentory's top 50 accounts. 70% customer retention at Talk Carpet.</dd></div>
+        <div><dt>CRM and customer success tools</dt><dd>Salesforce, Gainsight and Clari every day at Uber.</dd></div>
+        <div><dt>Business reviews</dt><dd>Monthly and quarterly reviews with my Uber partners.</dd></div>
+        <div><dt>Cross-functional work</dt><dd>Regular work with ads specialists and operations to act on partner feedback.</dd></div>
+        <div><dt>Growth-stage startup experience</dt><dd>Co-founded Talk Carpet and grew it to $7M. At Garmentory I was one of four people doing business development.</dd></div>
+        <div><dt>Consultative selling</dt><dd>Seven years presenting to architecture and design firms, on projects for Google, Netflix and Marriott.</dd></div>
+      </dl>
+    </div>
+    <div>
+      <div class="sec-head" style="margin-bottom:18px"><span class="eyebrow">First 30 days</span></div>
+      <h3 class="sub">Legal is new to me. Here is how I learn it fast.</h3>
+      <ol class="plan">
+        <li><span class="wk">Weeks 1 to 2</span><div><b>Learn the work</b><span>Sit in on customer calls. Run sample cases through the platform myself. Learn what a case manager's day looks like before I advise one.</span></div></li>
+        <li><span class="wk">Weeks 3 to 4</span><div><b>Take the accounts</b><span>Meet every assigned firm, baseline their usage, and write a success plan with each one.</span></div></li>
+        <li><span class="wk">Day 30</span><div><b>Report back</b><span>A ranked view of my book: who is at risk, who is ready to expand, and what I am doing about each.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<div class="band" id="contact">
+  <div class="wrap close">
+    <div class="askbox" id="askbox">
+      <div class="lab">Ask Charls</div>
+      <h2 id="closer" aria-label="Ask me anything. I'll cite my sources."><span class="l1">Ask me anything.</span> <span class="l2">I'll cite my sources.</span></h2>
+      <div class="srcs" id="srcs"><span>Uber, 2026</span><span>Garmentory, 2023 to 2026</span><span>Talk Carpet, 2016 to 2023</span></div>
+    </div>
+    <p class="why">Working at Uber showed me I belong at a fast-growing company where the playbook is still being written and I can help shape it. I want AI to be the product I work on, and Supio is building it here in Seattle, where I live.</p>
+    <div class="cta">
+      <a class="btn btn-lime" href="https://drive.google.com/file/d/1tFlNnqdYFlOmhIdsHM46PVvcSm645cGW/view?usp=sharing" target="_blank" rel="noopener">Read my resume <span class="arrow">↗</span></a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/charls-daren-pasion-97a16420a" target="_blank" rel="noopener">Message me on LinkedIn <span class="arrow">↗</span></a>
+      <span class="email" id="email">cdp.gervacio@gmail.com</span>
+      <button class="btn btn-ghost" id="copy" type="button">Copy email</button>
+    </div>
+  </div>
+  <div class="wrap foot">A personal page by Charls Pasion, made for his application. Not affiliated with or produced by Supio.</div>
+</div>
+
+<script>
+(function(){
+  var RM=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var cite=function(t){return ' <span class="cite">['+t+']</span>';};
+
+  /* theme */
+  var themeBtn=document.getElementById("theme"),root=document.documentElement;
+  function isDark(){var t=root.getAttribute("data-theme");if(t)return t==="dark";return !!(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);}
+  function label(){themeBtn.textContent=isDark()?"Light mode":"Dark mode";}
+  try{var saved=localStorage.getItem("theme");if(saved==="dark"||saved==="light")root.setAttribute("data-theme",saved);}catch(e){}
+  label();
+  themeBtn.addEventListener("click",function(){var n=isDark()?"light":"dark";root.setAttribute("data-theme",n);try{localStorage.setItem("theme",n);}catch(e){}label();});
+
+  /* questions */
+  var qa=[
+    {c:"Retain and grow",q:"Can you retain and grow a book of accounts?",
+     a:"Yes. At Uber I closed Q3 at 104% of quota against a 37% blended growth target"+cite("Uber, Q3 2026")+". On the strength of that quarter, Uber awarded me a much larger book for Q4, from $8 million to $40 million in annual GMV"+cite("Uber, Q4 2026")+". At Garmentory I grew the top 50 accounts 22 to 30% quarter over quarter"+cite("Garmentory, 2023 to 2025")+"."},
+    {c:"Onboard and adopt",q:"Have you onboarded customers onto something new?",
+     a:"Yes. Every boutique I signed at Garmentory in 2026 went on to make sales, and 70% now rank in the top 30 of all partners"+cite("Garmentory, Apr to Aug 2026")+". I also led the pilot for the marketplace's first sponsored listings program, where about a third of trial partners continued on paid spend"+cite("Garmentory, 2023 to 2025")+"."},
+    {c:"Lead with AI",q:"Do you lead with AI?",
+     a:"I built Garmentory's partner outreach system myself with AI coding agents, for about $217 a month. I am a self-taught builder, not an engineer. The boutiques it found were 13% of the new storefronts and drove 67.5% of the GMV from net-new partners"+cite("Garmentory, Apr to Aug 2026")+"."},
+    {c:"What is new to me",q:"What would be new to you?",
+     a:"The legal industry and the CSM title. The work is familiar. I spent seven years selling to partner-run architecture firms with 70% customer retention"+cite("Talk Carpet, 2016 to 2023")+", and my first two weeks would go to learning your customers' work before I advise anyone on it."}
+  ];
+  var qEl=document.getElementById("q"),aEl=document.getElementById("a"),chips=document.getElementById("chips");
+  function show(i,anim){
+    qEl.textContent=qa[i].q;aEl.innerHTML=qa[i].a;
+    if(anim){aEl.classList.remove("swap");void aEl.offsetWidth;aEl.classList.add("swap");}
+    Array.prototype.forEach.call(chips.children,function(b,j){b.setAttribute("aria-pressed",j===i?"true":"false");});
+  }
+  qa.forEach(function(x,i){
+    var b=document.createElement("button");b.type="button";b.className="chip";b.id="chip-"+i;b.textContent=x.c;
+    b.addEventListener("click",function(){show(i,true);});chips.appendChild(b);
+  });
+  show(0,false);
+
+  /* pilot cohort */
+  var dots=document.getElementById("dots");
+  for(var i=0;i<80;i++){var d=document.createElement("i");if(i<28)d.className="on";dots.appendChild(d);}
+
+  /* system map */
+  var NODES={
+    disc:{t:"Discovery search",tag:"Search",did:"Searched the web for independent boutiques. It checked my remaining budget before every run, capped the number of searches, and sent new finds to me for review before any outreach.",here:"Before a business review, gather what is public about the firm, such as new offices or practice areas, so I arrive knowing what changed."},
+    stock:{t:"Stockist search",tag:"Lookalikes · 47 brands",did:"Read the stockist pages of 47 brands to find boutiques already carrying labels that sold well on Garmentory. Our best sellers became a map of where to find more partners like them.",here:"Start from the firms getting the most value, find what they have in common, and check the rest of the book against that pattern."},
+    air:{t:"Airtable base",tag:"Hub · one source of truth",did:"One base for boutiques, contacts, activity and partners, with every record moving through stages from new prospect to live.",here:"One record per firm from kickoff to renewal, so account health is measured and not guessed."},
+    hunt:{t:"Contact lookup",tag:"Contacts · Hunter.io",did:"Found the right person's email, and only for stores that had already qualified. When it overwrote good contact data on some records, I traced the cause, repaired them and added checks before sending.",here:"Know who at each firm actually uses the platform, and keep that list current as staff change."},
+    draft:{t:"Outreach drafter",tag:"Drafts · Claude and Gmail",did:"Wrote personalized first drafts straight into Gmail, following my rules on tone and format. I read the first touches myself before anything went out.",here:"Draft the renewal brief or business review from the firm's own usage, then edit it myself before it reaches the customer."},
+    det:{t:"Reply tracking",tag:"Tracking · Gmail",did:"Logged sends and replies back to the base, filtered out-of-office replies and flagged bounces, so follow-ups went out on time without manual logging.",here:"Flag a drop in usage the week it happens, not the week of the renewal."},
+    guard:{t:"Rules it follows",tag:"Guardrails",did:"Budget checks and caps on every run. A test run before any live change. A read-only do-not-contact list. A check against live partner data, so active partners never got cold outreach.",here:"Decide ahead of time what the tooling is not allowed to do. Nothing customer-facing goes out without a person reading it."}
+  };
+  var sdetail=document.getElementById("sdetail"),sysEl=document.getElementById("sys"),svgEl=document.getElementById("sysSvg"),NS="http://www.w3.org/2000/svg";
+  var nEls=Array.prototype.slice.call(document.querySelectorAll("#system [data-n]"));
+  function setNode(id){
+    var dn=NODES[id];
+    nEls.forEach(function(b){b.setAttribute("aria-pressed",b.dataset.n===id?"true":"false");});
+    sdetail.innerHTML='<div><div class="k">'+dn.tag+'</div><h3>'+dn.t+'</h3></div><div><div class="k">What it did at Garmentory</div><p>'+dn.did+'</p></div><div class="here"><div class="k">The same idea at Supio</div><p>'+dn.here+'</p></div>';
+  }
+  nEls.forEach(function(b){b.addEventListener("click",function(){setNode(b.dataset.n);});});
+  setNode("stock");
+
+  var EDGES=[["disc","air"],["stock","air"],["air","hunt"],["hunt","draft"],["draft","det"],["det","air",1]];
+  var edgeEls=[],packets=[],spawnAcc=0,discCount=0,airCount=0;
+  function nodeEl(id){return document.getElementById("n-"+id);}
+  function guardEl(g){return document.getElementById("g-"+g);}
+  function rel(el,cr){var r=el.getBoundingClientRect();return{l:r.left-cr.left,r:r.right-cr.left,t:r.top-cr.top,b:r.bottom-cr.top,cx:(r.left+r.right)/2-cr.left,cy:(r.top+r.bottom)/2-cr.top};}
+  function layout(){
+    var cr=sysEl.getBoundingClientRect();
+    svgEl.setAttribute("viewBox","0 0 "+cr.width+" "+cr.height);
+    packets.forEach(function(p){p.c.remove();});packets=[];
+    Array.prototype.forEach.call(svgEl.querySelectorAll("path"),function(p){p.remove();});
+    edgeEls=EDGES.map(function(e){
+      var A=rel(nodeEl(e[0]),cr),B=rel(nodeEl(e[1]),cr),back=e[2],dx=B.cx-A.cx,dy=B.cy-A.cy,dstr;
+      if(Math.abs(dx)>Math.abs(dy)*.6){
+        var s=dx>0?1:-1,x1=s>0?A.r:A.l,x2=s>0?B.l:B.r,y1=A.cy+(back?12:0),y2=B.cy+(back?12:0),mx=(x1+x2)/2;
+        dstr="M"+x1+" "+y1+" C"+mx+" "+y1+", "+mx+" "+y2+", "+x2+" "+y2;
+      }else{
+        var ya=A.b,yb=B.t,my=(ya+yb)/2;
+        dstr="M"+A.cx+" "+ya+" C"+A.cx+" "+my+", "+B.cx+" "+my+", "+B.cx+" "+yb;
+      }
+      var p=document.createElementNS(NS,"path");p.setAttribute("d",dstr);p.setAttribute("class","edge"+(back?" back":""));
+      svgEl.appendChild(p);
+      return{p:p,len:p.getTotalLength()};
+    });
+  }
+  function flash(el,cls,ms){if(!el)return;el.classList.add(cls);clearTimeout(el._ft);el._ft=setTimeout(function(){el.classList.remove(cls);},ms);}
+  function addPacket(ei,o){
+    if(packets.length>40)return;o=o||{};
+    var c=document.createElementNS(NS,"circle");c.setAttribute("r",o.r||3.4);c.setAttribute("class","pk");svgEl.appendChild(c);
+    packets.push({ei:ei,t:0,c:c,block:!!o.block,g:o.g,sp:.42+Math.random()*.12});
+  }
+  function arrive(pk){
+    var to=EDGES[pk.ei][1],back=EDGES[pk.ei][2];
+    flash(nodeEl(to),"hit",380);
+    if(to==="air"&&!back){airCount++;if(airCount%6===0)flash(guardEl("dry"),"flash",900);if(Math.random()<.72)addPacket(2);}
+    else if(to==="hunt"){var bl=Math.random()<.18;addPacket(3,bl?{block:true,g:Math.random()<.5?"dnc":"live"}:{});}
+    else if(to==="draft")addPacket(4);
+    else if(to==="det")addPacket(5,{r:2.6});
+  }
+  function step(dt){
+    spawnAcc+=dt*1.3;
+    while(spawnAcc>1){spawnAcc--;var ei=Math.random()<.45?0:1;if(ei===0){discCount++;if(discCount%12===0)flash(guardEl("cap"),"flash",900);}addPacket(ei);}
+    packets.forEach(function(pk){
+      pk.t+=dt*pk.sp;var E=edgeEls[pk.ei];
+      if(pk.block&&pk.t>.5&&!pk.dead){pk.dead=true;pk.fade=1;pk.c.setAttribute("class","pk b");flash(guardEl(pk.g),"flash",900);}
+      if(pk.dead){pk.fade-=dt*2.2;pk.c.style.opacity=Math.max(0,pk.fade);}
+      else if(E){var pt=E.p.getPointAtLength(Math.min(1,pk.t)*E.len);pk.c.setAttribute("cx",pt.x);pk.c.setAttribute("cy",pt.y);}
+      if(pk.t>=1&&!pk.dead){pk.done=true;arrive(pk);}
+    });
+    packets=packets.filter(function(pk){var gone=pk.done||(pk.dead&&pk.fade<=0);if(gone)pk.c.remove();return!gone;});
+  }
+  layout();
+  var rt;window.addEventListener("resize",function(){clearTimeout(rt);rt=setTimeout(layout,150);});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(layout);
+  if(!RM){
+    var sysVis=!("IntersectionObserver" in window),last=0;
+    if(!sysVis)new IntersectionObserver(function(es){sysVis=es[0].isIntersecting;}).observe(sysEl);
+    (function loop(now){
+      var dt=Math.min(.05,(now-last)/1000||0);last=now;
+      if(sysVis&&!document.hidden)step(dt);
+      requestAnimationFrame(loop);
+    })(performance.now());
+  }
+
+  /* book of firms */
+  var firms=[
+    {n:"Marrow & Pike",seats:38,cases:"-41%",ren:"47 days",p:"At risk",k:"p-risk",
+     read:"Usage dropped after their lead paralegal left, and renewal is seven weeks out. Nobody at the firm owns the platform right now.",
+     move:"Call the managing partner this week. Retrain the new team on one of their live cases. Bring a before-and-after on hours saved to the renewal conversation."},
+    {n:"Bright Harbor Legal",seats:22,cases:"New",ren:"340 days",p:"Onboarding",k:"p-info",
+     read:"Week three of onboarding and behind on the success plan. Their file system connection is not finished, so staff cannot see the value yet.",
+     move:"Clear the blocker with their IT contact. Then take one case from intake to a finished draft so the whole team sees the full result once."},
+    {n:"Okafor Injury Law",seats:64,cases:"+4%",ren:"120 days",p:"Watch",k:"p-watch",
+     read:"Attorneys use it. Case managers do not. Adoption has stalled at the people who would save the most time.",
+     move:"Run a 30-minute session for case managers on their own open cases. Agree a 60-day adoption goal with the firm administrator."},
+    {n:"Lindqvist & Shaw",seats:83,cases:"+9%",ren:"95 days",p:"Healthy",k:"p-good",
+     read:"Steady usage and an engaged champion. Nothing is wrong, which is the right time to ask for more.",
+     move:"Hold the quarterly review, start the renewal early, and ask for a case study while they are happy."},
+    {n:"Castellan Trial Group",seats:91,cases:"+36%",ren:"210 days",p:"Expand",k:"p-grow",
+     read:"Nearly every seat is active and case volume is climbing. Their mass tort team is not on the platform.",
+     move:"Build the business case from their own numbers and bring sales in to open the second practice group."}
+  ];
+  var rows=document.getElementById("rows"),detail=document.getElementById("detail");
+  function pick(i){
+    var f=firms[i];
+    detail.innerHTML='<div><span class="pill '+f.k+'">'+f.p+'</span></div><h3>'+f.n.replace("&","&amp;")+'</h3><dl><dt>How I read it</dt><dd>'+f.read+'</dd><dt>What I do next</dt><dd>'+f.move+'</dd></dl>';
+    Array.prototype.forEach.call(rows.children,function(r,j){r.setAttribute("aria-pressed",j===i?"true":"false");});
+  }
+  firms.forEach(function(f,i){
+    var r=document.createElement("button");r.type="button";r.className="row";r.id="firm-"+i;
+    r.innerHTML='<span class="firm">'+f.n.replace("&","&amp;")+'</span>'+
+      '<span><small>Seats active</small><span class="num">'+f.seats+'%</span><span class="bar"><u style="width:'+f.seats+'%"></u></span></span>'+
+      '<span><small>Cases, MoM</small><span class="num">'+f.cases+'</span></span>'+
+      '<span><small>Renewal</small><span class="num">'+f.ren+'</span></span>'+
+      '<span class="pill '+f.k+'">'+f.p+'</span>';
+    r.addEventListener("click",function(){pick(i);});rows.appendChild(r);
+  });
+  pick(0);
+
+  /* copy email */
+  var copy=document.getElementById("copy");
+  copy.addEventListener("click",function(){
+    var t=document.getElementById("email");
+    var done=function(){copy.textContent="Copied";setTimeout(function(){copy.textContent="Copy email";},1800);};
+    var sel=function(){var r=document.createRange();r.selectNodeContents(t);var s=window.getSelection();s.removeAllRanges();s.addRange(r);copy.textContent="Selected, press copy";};
+    try{navigator.clipboard.writeText(t.textContent).then(done,sel);}catch(e){sel();}
+  });
+
+  /* closing line types itself into the ask box, then its sources arrive */
+  if(!RM&&"IntersectionObserver" in window){
+    var closer=document.getElementById("closer"),l1=closer.querySelector(".l1"),l2=closer.querySelector(".l2"),srcs=document.getElementById("srcs");
+    var t1=l1.textContent,t2=l2.textContent;
+    var io=new IntersectionObserver(function(es){
+      if(!es[0].isIntersecting)return;io.disconnect();
+      l1.textContent="";l2.textContent="";srcs.classList.add("hide");
+      var caret=document.createElement("span");caret.className="caret";caret.setAttribute("aria-hidden","true");closer.appendChild(caret);
+      var full=t1+t2,n=0;
+      (function type(){
+        n++;
+        l1.textContent=t1.slice(0,Math.min(n,t1.length));
+        l2.textContent=n>t1.length?t2.slice(0,n-t1.length):"";
+        if(n<full.length){setTimeout(type,n===t1.length?520:48);}
+        else{
+          Array.prototype.forEach.call(srcs.children,function(s,i){s.style.transitionDelay=(250+i*220)+"ms";});
+          srcs.classList.remove("hide");
+          setTimeout(function(){caret.remove();},2600);
+        }
+      })();
+    },{threshold:.6});
+    io.observe(document.getElementById("askbox"));
+  }
+})();
+</script>
+</body>
+</html>
